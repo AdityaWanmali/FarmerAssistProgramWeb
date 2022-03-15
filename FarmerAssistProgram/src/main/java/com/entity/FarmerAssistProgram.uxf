@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>10</y>
+      <w>2490</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>com.entity::SupplierEntity
+--
+-supplierId: long
+-supplierName: String
+-supplierAddress: String
+-supplierPhone: String
+-advertisement: List&lt;AdvertisementEntity&gt;
+-grievancesSupplier: List&lt;GrievanceEntitySupplier&gt;
+--
++SupplierEntity(): ctor
++SupplierEntity(long supplierId, @NotNull @Size(min = 2, message = "first Name should have at least 2 char") String supplierName, @NotNull String supplierAddress, @NotNull @Pattern(regexp = "[7-9][0-9]{9}", message = "Number must contains no. and length should be 10 ") String supplierPhone, List&lt;AdvertisementEntity&gt; advertisement, List&lt;GrievanceEntitySupplier&gt; grievancesSupplier): ctor
++getSupplierId(): long
++setSupplierId(long supplierId): void
++getSupplierName(): String
++setSupplierName(String supplierName): void
++getSupplierAddress(): String
++setSupplierAddress(String supplierAddress): void
++getSupplierPhone(): String
++setSupplierPhone(String supplierPhone): void
++getAdvertisement(): List&lt;AdvertisementEntity&gt;
++setAdvertisement(List&lt;AdvertisementEntity&gt; advertisement): void
++getGrievancesSupplier(): List&lt;GrievanceEntitySupplier&gt;
++setGrievancesSupplier(List&lt;GrievanceEntitySupplier&gt; grievancesSupplier): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2510</x>
+      <y>10</y>
+      <w>2100</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>com.entity::Farmer
+--
+-farmer_id: int
+-farmer_name: String
+-farmer_address: String
+-farmer_contact_number: String
+-grevancesEntity: List&lt;GrievancesEntity&gt;
+-crop: List&lt;Crop&gt;
+--
++Farmer(): ctor
++Farmer(int farmer_id, @NotNull @Size(min = 2, message = "First Name should have at least 2 char") String farmer_name, String farmer_address, @NotNull @Pattern(regexp = "[7-9][0-9]{9}", message = "Number must contains no. and length should be 10 ") String farmer_contact_number, List&lt;GrievancesEntity&gt; grevancesEntity): ctor
++getFarmer_id(): int
++setFarmer_id(int farmer_id): void
++getFarmer_name(): String
++setFarmer_name(String farmer_name): void
++getFarmer_address(): String
++setFarmer_address(String farmer_address): void
++getFarmer_contact_number(): String
++setFarmer_contact_number(String farmer_contact_number): void
++getGrevancesEntity(): List&lt;GrievancesEntity&gt;
++setGrevancesEntity(List&lt;GrievancesEntity&gt; grevancesEntity): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>430</y>
+      <w>290</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>com.entity::Crop
+--
+-cropid: int
+-cropname: String
+-cropprice: double
+-cropquantity: double
+-farmers: Farmer
+--
++Crop(): ctor
++getCropid(): int
++setCropid(int cropid): void
++getCropname(): String
++setCropname(String cropname): void
++getCropprice(): double
++setCropprice(double cropprice): void
++getCropquantity(): double
++setCropquantity(double cropquantity): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>430</y>
+      <w>810</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>com.entity::GrievancesEntity
+--
+-complaintId: long
+-complaintMessage: String
+-farmer: Farmer
+-suppliers: SupplierEntity
+--
++GrievancesEntity(): ctor
++GrievancesEntity(long complaintId, @Size(max = 100) String complaintMessage, Farmer farmer, SupplierEntity suppliers): ctor
++getComplaintId(): long
++setComplaintId(long complaintId): void
++getComplaintMessage(): String
++setComplaintMessage(String complaintMessage): void
++getFarmer(): Farmer
++setFarmer(Farmer farmer): void
++getSuppliers(): SupplierEntity
++setSuppliers(SupplierEntity suppliers): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1130</x>
+      <y>430</y>
+      <w>440</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>com.entity::AdvertisementEntity
+--
+-addId: long
+-adver: String
+-supplier: SupplierEntity
+--
++AdvertisementEntity(): ctor
++AdvertisementEntity(long addId, /* @Pattern(regexp = "[a-zA-z]") */&#13;
+@NotNull String adver, SupplierEntity supplier): ctor
++getAddId(): long
++setAddId(long addId): void
++getAdver(): String
++setAdver(String adver): void
++getSupplier(): SupplierEntity
++setSupplier(SupplierEntity supplier): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>750</y>
+      <w>600</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>com.entity::AdminEntity
+--
+-adminId: int
+-adminUsername: String
+-adminMail: String
+--
++AdminEntity(): ctor
++AdminEntity(int adminId, String adminUsername, String adminAdress, String adminMail): ctor
++getAdminId(): int
++setAdminId(int adminId): void
++getadminUsername(): String
++setadminUsername(String adminUsername): void
++getAdminMail(): String
++setAdminMail(String adminMail): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>750</y>
+      <w>860</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>com.entity::GrievanceEntitySupplier
+--
+-complaintIdSupplier: long
+-complaintMessageSupplier: String
+-suppliers: SupplierEntity
+--
++GrievanceEntitySupplier(): ctor
++GrievanceEntitySupplier(long complaintIdSupplier, @Size(max = 100) String complaintMessageSupplier, SupplierEntity suppliers): ctor
++getComplaintIdSupplier(): long
++setComplaintIdSupplier(long complaintIdSupplier): void
++getComplaintMessageSupplier(): String
++setComplaintMessageSupplier(String complaintMessageSupplier): void
++getSuppliers(): SupplierEntity
++setSuppliers(SupplierEntity suppliers): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
