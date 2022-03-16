@@ -22,8 +22,6 @@ public class GrievancesEntity {
 	@ManyToOne
 	private Farmer farmer;
 	
-	@ManyToOne
-	private SupplierEntity suppliers;
 	
 	
 	public GrievancesEntity() {
@@ -31,13 +29,13 @@ public class GrievancesEntity {
 	}
 
 
-	public GrievancesEntity(long complaintId, @Size(max = 100) String complaintMessage, Farmer farmer,
-			SupplierEntity suppliers) {
+	public GrievancesEntity(long complaintId, @Size(max = 100) String complaintMessage, Farmer farmer
+			) {
 		super();
 		this.complaintId = complaintId;
 		this.complaintMessage = complaintMessage;
 		this.farmer = farmer;
-		this.suppliers = suppliers;
+		
 	}
 
 
@@ -71,20 +69,16 @@ public class GrievancesEntity {
 	}
 
 
-	public SupplierEntity getSuppliers() {
-		return suppliers;
-	}
-
-
-	public void setSuppliers(SupplierEntity suppliers) {
-		this.suppliers = suppliers;
-	}
-
-
 	@Override
 	public String toString() {
 		return "GrievancesEntity [complaintId=" + complaintId + ", complaintMessage=" + complaintMessage + ", farmer="
-				+ farmer + ", suppliers=" + suppliers + "]";
+				+ farmer + "]";
 	}
+
+
+	
+
+
+	
 	
 }
